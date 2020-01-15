@@ -1,0 +1,14 @@
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        ans = 0
+        for i in range(n):
+            row = 0
+            col = 0
+            for j in range(n):
+                if grid[i][j]:
+                    ans += 1
+                row = max(row, grid[i][j])
+                col = max(col, grid[j][i])
+            ans += row + col
+        return ans
