@@ -1,0 +1,16 @@
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        right = 0
+        down = 0
+        total = 0
+        width = len(grid[0])
+        length = len(grid)
+        for i in range(length):
+            for j in range(width):
+                if grid[i][j] == 1:
+                    total += 1
+                    if j+1 < width and grid[i][j+1] == 1:
+                        right += 1
+                    if i+1 < length and grid[i+1][j] == 1:
+                        down += 1
+        return 4*total-2*(right+down)
